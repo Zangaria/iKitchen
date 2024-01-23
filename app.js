@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-//import {} from './config db/'
+import './configDB/connectToMongoDB.js';
 import cors from 'cors';
 import { services } from './services.js';
 
@@ -8,16 +8,16 @@ const app = express();
 app.use(express.json());
 dotenv.config();
 
-app.use(cors({
-    origin: '*'
-}));
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 
-const port=process.env.port || 3005;
+const port = process.env.PORT || 3005;
 
 services(app);
 
-app.get('/*',(req,res)=>{
-    res.json({msg: 'service is up', Approved:true});
-})
-
-
+app.get('/*', (req, res) => {
+  res.json({ msg: 'service is up', Approved: true });
+});
