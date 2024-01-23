@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Zangaria/iKitchen/issues"
   },
-  "homepage": "https://github.com/Zangaria/iKitchen#readme"
+  "homepage": "https://github.com/Zangaria/iKitchen#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
