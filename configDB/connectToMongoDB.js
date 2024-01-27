@@ -6,7 +6,8 @@ dotenv.config();
 // Connect Update With Retry Amitoz 27/01/24
 const USER = process.env.MONGOUSER;
 const PASS = process.env.MONGOPASSWORD;
-const uri = `mongodb+srv://${USER}:${PASS}@zangaria.gfmd0on.mongodb.net/iKitchen?retryWrites=true&w=majority`;
+//const uri = `mongodb+srv://${USER}:${PASS}@zangaria.gfmd0on.mongodb.net/iKitchen?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://amio:Esp!0321c!ub@cluster0.sups45s.mongodb.net/ikitchen?retryWrites=true&w=majority`;
 
 export const connectToMongoDB = async () => {
   return new Promise((resolve, reject) => {
@@ -17,6 +18,7 @@ export const connectToMongoDB = async () => {
         await mongoose.connect(uri, {
           serverSelectionTimeoutMS: 5000,
         });
+        console.log('MongoDB Connected...');
         resolve({ msg: "MongoDB Connected..." });
       } catch (error) {
         if (operation.retry(error)) {
@@ -26,3 +28,5 @@ export const connectToMongoDB = async () => {
     });
   });
 };
+
+connectToMongoDB()

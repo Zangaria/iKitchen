@@ -9,7 +9,7 @@ export const Register = async (req,res) => {
    
    if (!response?.err)
    {
-      const emailRes = {email:req.body.email,subject:`Wellcome ${req.body.userName}`,text:`Enter this link to Active Your User: ${response}`}
+      const emailRes = {email:req.body.email,subject:`Wellcome ${req.body.userName}`,text:`Enter this link to Active Your User:  https://api-ikitchen.amio.co.il/activeUser?userid=${response}`}
       const send = await SendEmail(emailRes);
       if (send?.err)
       return res.status(400).json(send)
