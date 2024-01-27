@@ -1,8 +1,11 @@
 import { addUser } from "../../controllers/users/addUser.js";
 import { SendEmail } from "../../helpers/SendEmail.js";
 
+
+// Amitoz 27/01/24
+// Register
 export const Register = async (req,res) => {
-   const response =  await addUser(req.body);
+   const response =  await addUser(req.body); // This Response Have the ID of the user that created
 
    if (!response?.err)
    {

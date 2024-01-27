@@ -1,5 +1,5 @@
 import { getIsraelDateTime } from "../../helpers/getdate.js";
-import { User } from "../../models/User.js";
+import { User } from "../../models/user.js";
 
 export const activeUserById = async (userId) => {
   try {

@@ -6,7 +6,7 @@ import { services } from './services.js';
 const app = express();
 app.use(express.json());
 dotenv.config();
-const port = process.env.PORT || 3005;
+const port =  8080;
 
 
 
