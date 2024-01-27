@@ -7,7 +7,7 @@ dotenv.config();
 const USER = process.env.MONGOUSER;
 const PASS = process.env.MONGOPASSWORD;
 //const uri = `mongodb+srv://${USER}:${PASS}@zangaria.gfmd0on.mongodb.net/iKitchen?retryWrites=true&w=majority`;
-const uri = `mongodb+srv://amio:Esp!0321c!ub@cluster0.sups45s.mongodb.net/ikitchen?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://zangaria:tuba123@zangaria.gfmd0on.mongodb.net/iKitchen?retryWrites=true&w=majority`;
 
 export const connectToMongoDB = async () => {
   return new Promise((resolve, reject) => {
