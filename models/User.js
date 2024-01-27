@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-
+// Amitoz 27/01/24
+// Wating to Cahnges....
 const UserSchema = new mongoose.Schema({
     userName: String,
     password: String,
