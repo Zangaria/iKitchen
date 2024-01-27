@@ -1,6 +1,8 @@
 import { getIsraelDateTime } from "../../helpers/getdate.js";
 import { User } from "../../models/user.js";
 
+
+// Amitoz 27/01/24
 export const addUser = async(data) => {
     if (!data?.userName || !data?.password || !data?.email)
         return { err: true, msg: "The parameters password&email&userName must be entered" };

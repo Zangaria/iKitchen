@@ -1,4 +1,6 @@
 
+
+// Amitoz 27/01/24
 export const getIsraelDateTime = () => {
     const israelTimeZone = "Asia/Jerusalem";
     const currentTime = new Date();
