@@ -7,7 +7,7 @@ import { connectToMongoDB } from './configDB/connectToMongoDB.js';
 const app = express();
 app.use(express.json());
 dotenv.config();
-const port =  8080;
+const port = process.env.PORT || 8080;
 
 
 

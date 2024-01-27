@@ -6,7 +6,7 @@ import { SendEmail } from "../../helpers/SendEmail.js";
 // Register
 export const Register = async (req,res) => {
    const response =  await addUser(req.body); // This Response Have the ID of the user that created
-
+   
    if (!response?.err)
    {
       const emailRes = {email:req.body.email,subject:`Wellcome ${req.body.userName}`,text:`Enter this link to Active Your User: ${response}`}
