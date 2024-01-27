@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import './configDB/connectToMongoDB.js';
 import cors from 'cors';
 import { services } from './services.js';
+import { connectToMongoDB } from './configDB/connectToMongoDB.js';
 const app = express();
 app.use(express.json());
 dotenv.config();
@@ -17,8 +18,10 @@ app.use(
 );
 
 
-
+const connect = await connectToMongoDB();
+if (!connect?.err)
 services(app);
+
 
 
 
