@@ -5,7 +5,7 @@ export const activeUserById = async (userId) => {
   try {
     // Find the user by ID
     const user = await User.findById(userId);
-
+    
     // Check if the user exists
     if (user) {
       const currentTime = new Date(getIsraelDateTime());

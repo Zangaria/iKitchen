@@ -3,7 +3,7 @@ import { activeUserById } from "../../controllers/users/activeUserByID.js";
 
 // Active User By ID (MongoID)
 // Amitoz 27/01/24
-// Wating... After Active Need Run Fuck To Login And Catch The Token And Return in this Servies...
+// Wating... After Active Need Run func To Login And Catch The Token And Return in this Servies...
 
 export const activeUser = async (req,res) => {
     const {userid} = req.query;
