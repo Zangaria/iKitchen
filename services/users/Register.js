@@ -14,7 +14,7 @@ export const Register = async (req,res) => {
       if (send?.err)
       return res.status(400).json(send)
       else
-      return res.status(200).json({msg:"user created, send to email link to active your user"})
+      return res.status(200).json({msg:"user created, send to email link to active your user",code:100})
    }
    else 
    return res.status(401).json(response)

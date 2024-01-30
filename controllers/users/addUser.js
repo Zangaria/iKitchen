@@ -5,7 +5,7 @@ import { User } from "../../models/user.js";
 // Amitoz 27/01/24
 export const addUser = async(data) => {
     if (!data?.userName || !data?.password || !data?.email)
-        return { err: true, msg: "The parameters password&email&userName must be entered" };
+        return {code:106 ,err: true, msg: "The parameters password&email&userName must be entered" };
 
     try {
         // Check if a user with the provided email already exists
@@ -14,7 +14,7 @@ export const addUser = async(data) => {
         if (existingUser) {
             if (existingUser.active) {
                 // User exists and is active
-                return { err: true, msg: "User with this email already exists and is active." };
+                return {code:101, err: true, msg: "User with this email already exists and is active." };
             } else {
                 // User exists but is not active, check the time difference
                 const currentTime = new Date(getIsraelDateTime());
