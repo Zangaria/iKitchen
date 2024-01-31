@@ -1,4 +1,4 @@
-import { updateUserById } from "../../controllers/users/update.js";
+import { updateUserById } from "../../controllers/users/updateUserByToken.js";
 
 export const updateUser = async (req,res) => {
    const  password  = req.body.password;

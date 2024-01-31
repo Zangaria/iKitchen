@@ -23,10 +23,7 @@ app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}/`);
 });
 
-app.get('/react', (req, res) => {
-  // Redirect to the specified URL immediately
-  res.redirect('http://pornhub.com');
-});
+
 app.get('/*', (req, res) => {
   res.json({ msg: 'service is up', AmitIsKing: true });
 });
