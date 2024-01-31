@@ -1,9 +1,10 @@
+import { SendEmail } from "../../helpers/SendEmail.js";
 import { User } from "../../models/user.js";
 import { generateToken } from "../jwt/generate.js";
 
-export const loginUser = async (data) => {
+export const forgotPass = async (data) => {
     try {
-        const { email, password } = data;
+        const { email } = data;
          
         // Find the user with the provided email
         const user = await User.findOne({ email });
@@ -12,21 +13,20 @@ export const loginUser = async (data) => {
             return { err: true, msg: "User not found" };
         }
 
-        // Check the password (replace this with your actual password validation logic)
-        if (user.password !== password) {
-            return { err: true, msg: "Invalid password" };
-        }
-
+    
         // Check if the user is active
         if (!user.active) {
             return { err: true, msg: "User is not active. Please activate your account." };
         }
 
         // Generate a token for the authenticated user
-        console.log(user);
         const token = generateToken(user);
 
-        return { err: false, msg: "Login successful", token };
+        const emailData = {email:data.email,subject:'Reset Your Password',text:`https://app.com/?token=${token}`};
+        const send = await SendEmail(emailData)
+        if (send?.err)
+        return send;
+        return { err: false, msg: "Link to Reset Your Password Send to YourEmail", code:105 };
     } catch (error) {
         return { err: true, msg: error.message };
     }
