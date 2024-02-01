@@ -13,6 +13,7 @@ export const updateUserById = async (data) => {
         const user = await User.findById(userId);
 
         if (!user) {
+            
             return { err: true, msg: "User not found" };
         }
 
