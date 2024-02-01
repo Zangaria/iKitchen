@@ -9,12 +9,12 @@ import { updateUser } from "./services/users/updateUser.js"
 
 export const services= (app)=>{
     // Amitoz 27/01/24    
-    app.post('/register',Register)
-    app.post('/login',Login)
-    app.get('/check',authMiddleware,activeUser)
-    app.get('/activeUser',activeUser)
-    app.post('/ForgotPassword',ForgotPassword) // 30/01/24
-    app.post('/updateUser',authMiddleware,updateUser)
+    app.post('/user/register',Register)
+    app.post('/user/login',Login)
+    app.get('/user/check',authMiddleware,activeUser)
+    app.get('/user/activeUser',activeUser)
+    app.post('/user/ForgotPassword',ForgotPassword) // 30/01/24
+    app.post('/user/updateUser',authMiddleware,updateUser)
     
     // END
 

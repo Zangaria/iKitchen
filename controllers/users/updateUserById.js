@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 // Amitoz 30/01/24
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
-// use this func to update user , user password or... you know, amit oz the best.....
+// use this func to update user , user password or... username......
 export const updateUserById = async (data) => {
     const { userId ,password, userName } = data;
     
