@@ -2,26 +2,10 @@ import mongoose from "mongoose";
 // eliran 30/01/24
 const recipeSchema = new mongoose.Schema({
   name: String,
-  //כאן כנראה שנחליף בטבלת יצירה כללית לשרת
-  creation: {
-    cDate: {
-      type: Date,
-      default: Date.now,
-    },
-    creatorID: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "user",
-      required: true,
-    },
-  },
-  //כאן כנראה שנחליף בטבלת עדכונים כללית לשרת
-  updateLog: [
-    {
-      uDate: Date,
-      uID: mongoose.Schema.Types.ObjectId,
-      content: [String],
-    },
-  ],
+  //מפתח של יצירה מטבלת עדכונים
+  creationID: mongoose.Schema.Types.ObjectId,
+  //מערך למפתחות של עדכונים מטבלת עדכונים
+  updateLog: [mongoose.Schema.Types.ObjectId],
   themeIMG: String,
   coverIMG: String,
   recipeIMG: [String],
