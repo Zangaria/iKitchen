@@ -24,9 +24,11 @@ const recipeSchema = new mongoose.Schema({
     //אובייקט של שלב במתכון
     {
       sName: String,
+      //מפתח של מצרך מטבלת מצרכים
       sIngred: [mongoose.Schema.Types.ObjectId],
       sIngredQt: [Number],
       sIngredMsr: [String],
+      // מפתח של מצרך מטבלת מצרכים
       sAltIngred: [mongoose.Schema.Types.ObjectId],
       sIngredIndex: [Number],
       sAltQt: [Number],
