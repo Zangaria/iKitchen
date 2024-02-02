@@ -1,5 +1,4 @@
 import { User } from "../../models/user.js";
-import jwt from 'jsonwebtoken';
 
 // Amitoz 30/01/24
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}

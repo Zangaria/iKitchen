@@ -3,11 +3,16 @@ import dotenv from 'dotenv';
 import './configDB/connectToMongoDB.js';
 import cors from 'cors';
 import { services } from './services.js';
+import { connectToMongoDB } from './configDB/connectToMongoDB.js';
 const app = express();
 app.use(express.json());
 dotenv.config();
 
-const port = process.env.PORT || 8080;
+
+connectToMongoDB()
+
+
+const port = 8080;
 
 app.use(
   cors({
