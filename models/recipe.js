@@ -55,6 +55,8 @@ const recipeSchema = new mongoose.Schema({
   ],
   tips: [String],
   closing: [String],
+  views: Number,
+  saved: Number,
 });
 
 export const recipe = mongoose.model("recipes", recipeSchema);
