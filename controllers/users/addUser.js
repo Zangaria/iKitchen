@@ -1,3 +1,4 @@
+import {  hashUserPassword } from "../../helpers/bcrypt.js";
 import { getIsraelDateTime } from "../../helpers/getdate.js";
 import { User } from "../../models/user.js";
 
@@ -6,6 +7,7 @@ import { User } from "../../models/user.js";
 export const addUser = async(data) => {
     if (!data?.userName || !data?.password || !data?.email)
         return {code:106 ,err: true, msg: "The parameters password&email&userName must be entered" };
+        const hashPassword = hashUserPassword(data.password)
 
     try {
         // Check if a user with the provided email already exists
@@ -28,7 +30,7 @@ export const addUser = async(data) => {
                     // Create a new user
                     const newUser = new User({
                         userName: data.userName,
-                        password: data.password,
+                        password: hashPassword,
                         email: data.email,
                         myRecipes: ['123', '12333'],
                         Invalidpassword: false,
@@ -49,7 +51,7 @@ export const addUser = async(data) => {
         // Create a new user
         const newUser = new User({
             userName: data.userName,
-            password: data.password,
+            password: hashPassword,
             email: data.email,
             myRecipes: ['123', '12333'],
             Invalidpassword: false,

@@ -1,3 +1,4 @@
+import { compareUserPassword } from "../../helpers/bcrypt.js";
 import { User } from "../../models/user.js";
 import { generateToken } from "../jwt/generate.js";
 
@@ -14,7 +15,8 @@ export const loginUser = async (data) => {
     }
 
     // Check the password (replace this with your actual password validation logic)
-    if (user.password !== password) {
+        const comparPassword =  compareUserPassword(password,user.password)
+    if (!comparPassword) {
       return { err: true, msg: "Invalid password" };
     }
 
