@@ -1,4 +1,6 @@
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 export const generateToken = (user) => {
@@ -11,7 +13,7 @@ export const generateToken = (user) => {
     // Set the expiration time to 60 minutes (60 seconds * 60 minutes)
     const expirationTime = 60 * 60;
 
-    const token = jwt.sign(payload, '12222', {
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
         expiresIn: expirationTime,
     });
 

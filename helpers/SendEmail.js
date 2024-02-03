@@ -15,10 +15,9 @@ export const SendEmail = async (data) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'ikitchen230@gmail.com', //process.env.EMAIL_USER,
-                pass: 'qtns efli pdoq qune' //process.env.EMAIL_PASSWORD
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASSWORD
             }
-            
         });
 
         const mailOptions = {

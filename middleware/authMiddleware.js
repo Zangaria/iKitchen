@@ -13,7 +13,7 @@ export const authMiddleware = (req, res, next) => {
     }
 
     // Verify the token  // ADD env Amitoz 30/01/24
-    jwt.verify(token, '12222' , (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET , (err, user) => {
         if (err) {
             return res.status(401).json({ error: 'Unauthorized: Invalid token' });
         }
