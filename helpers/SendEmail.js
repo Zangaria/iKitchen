@@ -18,6 +18,7 @@ export const SendEmail = async (data) => {
                 user: 'ikitchen230@gmail.com', //process.env.EMAIL_USER,
                 pass: 'qtns efli pdoq qune' //process.env.EMAIL_PASSWORD
             }
+            
         });
 
         const mailOptions = {
