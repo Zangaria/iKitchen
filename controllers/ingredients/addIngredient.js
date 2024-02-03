@@ -1,4 +1,4 @@
-import {User} from "../../models/user.js";
+import { user } from "../../models/user.js";
 
 // Amitoz 30/01/24
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
@@ -9,7 +9,7 @@ export const updateUserById = async (data) => {
     try {
 
         // Find the user by userId
-        const user = await User.findById(userId);
+        const user = await user.findById(userId);
 
         if (!user) {
             

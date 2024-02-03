@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 // Amitoz 27/01/24
 // Wating to Cahnges....
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     userName: String,
     password: String,
     loginLog: [Date],
@@ -23,4 +23,4 @@ const UserSchema = new mongoose.Schema({
     active: Boolean
 });
 
-export const User = mongoose.model("Users", UserSchema);
+export const User = mongoose.model("users", userSchema);
