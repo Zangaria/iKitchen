@@ -1,10 +1,10 @@
-import { user } from "../../models/user.js";
+import {Ingredient} from "../../models/ingredient.js"
 
-// Amitoz 30/01/24
+// Eliran 02/02/24
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
 // use this func to update user , user password or... username......
-export const updateUserById = async (data) => {
-    const { userId ,password, userName } = data;
+export const addIngrediant = async (data) => {
+    const {  } = data;
     
     try {
 
