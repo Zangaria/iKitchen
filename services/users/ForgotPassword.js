@@ -1,4 +1,4 @@
-import { forgotPass } from "../../controllers/users/forgotPass.js";
+import { forgotPass } from "../../controllers";
 
 
 

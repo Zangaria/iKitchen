@@ -4,7 +4,7 @@ import { Login } from './users/Login.js';
 import { Register } from './users/Register.js';
 import { updateUser } from './users/updateUser.js';
 
-export default {
+export {
   activeUser,
   ForgotPassword,
   Login,

@@ -4,7 +4,7 @@ import { forgotPass } from './users/forgotPass.js';
 import { loginUser } from './users/login.js';
 import { updateUserById } from './users/updateUserById.js';
 
-export default {
+export {
   activeUserById,
   addUser,
   forgotPass,
