@@ -1,34 +1,36 @@
-import {Ingredient} from "../../models/ingredient.js"
+import { Ingredient } from "../../models";
 
 // Eliran 02/02/24
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
 // use this func to update user , user password or... username......
 export const addIngrediant = async (data) => {
-    const {  } = data;
-    
+    if (!data?.name || !data?.category || data.info.length==0){
+        return{
+            code:106,
+            err:true,
+            msg:"the parameters name & category & info are required."
+        }
+    };
     try {
 
-        // Find the user by userId
-        const user = await user.findById(userId);
+        // check if the ingrediant exists
+        const existingIngredient = await Ingredient.findOne({
+            name:data.name
+        }); 
+        if (existingIngredient)
 
-        if (!user) {
-            
-            return { err: true, msg: "User not found" };
+           //if the ingrediant already exists
+            return {
+                code: 101,
+                err: true,
+                msg: 'An Ingredient with this name already exists.',
+            };
+        else{
+            //create a new ingrediant
+            const newIngredient = new Ingredient(data);
+            const res=await newIngredient.save();
+            return res?._id.toString();
         }
-
-        // Update fields if they exist in the data object
-        if (password) {
-            user.password = password;
-        }
-
-        if (userName) {
-            user.userName = userName;
-        }
-
-        // Save the updated user to the database
-        await user.save();
-
-        return { err: false, msg: "User data updated successfully" };
     } catch (error) {
         return { err: true, msg: error.message };
     }
