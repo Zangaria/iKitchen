@@ -1,13 +1,7 @@
-import { Creation } from './creation.js';
-import { Ingredient } from './ingredient.js';
-import { recipe } from './recipe.js';
-import { Update } from './update.js';
-import { User } from './user.js';
+//import { DocCreation } from "./docCreation.js";
+import { Ingredient } from "./ingredient.js";
+import { recipe } from "./recipe.js";
+//import { DocUpdate } from "./docUpdate.js";
+import { User } from "./User.js";
 
-export {
-  Creation,
-  Ingredient,
-  recipe,
-  Update,
-  User,
-};
+export { Ingredient, recipe, User };
