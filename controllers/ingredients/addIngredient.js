@@ -4,7 +4,7 @@ import { Ingredient } from "../../models/index.js";
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
 // use this func to update user , user password or... username......
 export const addIngrediant = async (data) => {
-  if (!data?.name || !data?.category || data.info.length == 0) {
+  if (!data?.name || !data?.category || data.info.length() == 0) {
     return {
       code: 106,
       err: true,

@@ -1,11 +1,11 @@
 import { getIsraelDateTime } from "../../helpers/getdate.js";
-import { User } from "../../models/user.js";
+import { User } from "../../models/User.js";
 
 export const activeUserById = async (userId) => {
   try {
     // Find the user by ID
     const user = await User.findById(userId);
-    
+
     // Check if the user exists
     if (user) {
       const currentTime = new Date(getIsraelDateTime());
@@ -14,7 +14,9 @@ export const activeUserById = async (userId) => {
       // Check if both currentTime and userUpdateTime are valid dates before proceeding
       if (!isNaN(currentTime.getTime()) && !isNaN(userUpdateTime.getTime())) {
         // Calculate the time difference in minutes
-        const timeDifference = Math.floor((currentTime - userUpdateTime) / (60 * 1000));
+        const timeDifference = Math.floor(
+          (currentTime - userUpdateTime) / (60 * 1000)
+        );
         console.log("Current Time:", currentTime);
         console.log("User Update Time:", userUpdateTime);
 
@@ -23,22 +25,25 @@ export const activeUserById = async (userId) => {
           // Activate the user
           user.active = true;
           await user.save();
-          return { success: true, msg: 'User activated successfully.' };
+          return { success: true, msg: "User activated successfully." };
         } else if (timeDifference > 5 && !user.active) {
           // Delete the expired user
           await User.findByIdAndDelete(userId);
-          return { err: true, msg: 'User link expired. The user has been deleted.' };
+          return {
+            err: true,
+            msg: "User link expired. The user has been deleted.",
+          };
         } else {
           // User not found or already active, show expired message
-          return { err: true, msg: 'User link expired.' };
+          return { err: true, msg: "User link expired." };
         }
       } else {
         // Invalid date(s)
-        return { err: true, msg: 'Invalid date(s).' };
+        return { err: true, msg: "Invalid date(s)." };
       }
     } else {
       // User not found, show expired message
-      return { err: true, msg: 'User link expired.' };
+      return { err: true, msg: "User link expired." };
     }
   } catch (error) {
     return { err: true, msg: error };

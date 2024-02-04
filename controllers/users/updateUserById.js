@@ -1,4 +1,4 @@
-import { User } from '../../models/user.js';
+import { User } from "../../models/User.js";
 
 // Amitoz 30/01/24
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
@@ -11,7 +11,7 @@ export const updateUserById = async (data) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return { err: true, msg: 'User not found' };
+      return { err: true, msg: "User not found" };
     }
 
     // Update fields if they exist in the data object
@@ -28,7 +28,7 @@ export const updateUserById = async (data) => {
 
     return {
       err: false,
-      msg: 'User data updated successfully',
+      msg: "User data updated successfully",
     };
   } catch (error) {
     return { err: true, msg: error.message };
