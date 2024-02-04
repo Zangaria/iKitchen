@@ -1,5 +1,6 @@
 import { getIsraelDateTime } from "../../helpers/getdate.js";
 import { User } from "../../models/User.js";
+import { generateToken } from "../jwt/generate.js";
 
 export const activeUserById = async (userId) => {
   try {
@@ -25,7 +26,8 @@ export const activeUserById = async (userId) => {
           // Activate the user
           user.active = true;
           await user.save();
-          return { success: true, msg: "User activated successfully." };
+          const token = generateToken(user);
+          return { success: true, msg: "User activated successfully." , token:token };
         } else if (timeDifference > 5 && !user.active) {
           // Delete the expired user
           await User.findByIdAndDelete(userId);

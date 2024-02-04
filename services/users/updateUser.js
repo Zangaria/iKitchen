@@ -1,6 +1,7 @@
 import { updateUserById } from "../../controllers/index.js";
 
 export const updateUser = async (req, res) => {
+  console.log(req.user);
   const password = req.body.password;
   const userName = req.body.userName;
   const userId = req.user.userId;

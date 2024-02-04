@@ -14,7 +14,7 @@ export const services = (app) => {
   app.get("/user/check", authMiddleware, activeUser);
   app.get("/user/activeUser", activeUser);
   app.post("/user/ForgotPassword", ForgotPassword); // 30/01/24
-  app.post("/user/updateUser", authMiddleware, updateUser);
+  app.patch("/user/updateUser", authMiddleware, updateUser);
 
   // END
 };
