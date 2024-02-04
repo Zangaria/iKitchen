@@ -18,7 +18,10 @@ const recipeSchema = new mongoose.Schema({
     min: 0,
     max: 3,
   },
-  adjustable: Boolean,
+  adjustable: {
+    type: Boolean,
+    default: false,
+  },
   intro: [String],
   body: [
     //אובייקט של שלב במתכון
