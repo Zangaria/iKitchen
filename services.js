@@ -1,6 +1,5 @@
 import { authMiddleware } from "./middleware/authMiddleware.js";
 
-
 export const services = (app) => {
   // Amitoz 27/01/24
   app.post("/user/register", Register);

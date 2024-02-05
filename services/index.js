@@ -6,7 +6,7 @@ import { Register } from './users/Register.js';
 import { updateUser } from './users/updateUser.js';
 import { addToWeb, getDataWeb } from './web/web.js';
 
-export default {
+export {
   activeUser,
   ForgotPassword,
   Login,
