@@ -1,13 +1,5 @@
 import { authMiddleware } from "./middleware/authMiddleware.js";
-import {
-  Register,
-  activeUser,
-  Login,
-  ForgotPassword,
-  updateUser,
-  addToWeb,
-  getDataWeb,
-} from "./services/index.js";
+
 
 export const services = (app) => {
   // Amitoz 27/01/24
@@ -19,7 +11,7 @@ export const services = (app) => {
   app.patch("/user/updateUser", authMiddleware, updateUser);
   app.get("/web",getDataWeb)
   app.post("/web",addToWeb)
- 
-
   // END
+  //Eliran 05/02/24
+  app.post
 };
