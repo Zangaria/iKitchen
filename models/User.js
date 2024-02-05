@@ -3,6 +3,13 @@ import mongoose from "mongoose";
 // Wating to Cahnges....
 const userSchema = new mongoose.Schema({
     userName: String,
+    //Eliran 06/02/24
+    //1- Admin 2- Moderator 3- Member
+    role: {
+        type:Number,
+        match:[1,2,3],
+        default:1,
+    },
     password: String,
     loginLog: [Date],
     email: {
