@@ -12,5 +12,5 @@ export const services = (app) => {
   app.post("/web",addToWeb)
   // END
   //Eliran 05/02/24
-  app.post
+
 };

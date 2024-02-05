@@ -9,5 +9,13 @@ import {
   getDataWeb,
 } from './web/web.js';
 
-export {activeUser,ForgotPassword,Login,Register,updateUser,addToWeb,getDataWeb};
-export{addIngredient};
+export {
+  activeUser,
+  ForgotPassword,
+  Login,
+  Register,
+  updateUser,
+  addToWeb,
+  getDataWeb,
+};
+export { addIngredient };
