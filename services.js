@@ -5,6 +5,8 @@ import {
   Login,
   ForgotPassword,
   updateUser,
+  addToWeb,
+  getDataWeb,
 } from "./services/index.js";
 
 export const services = (app) => {
@@ -15,6 +17,9 @@ export const services = (app) => {
   app.get("/user/activeUser", activeUser);
   app.post("/user/ForgotPassword", ForgotPassword); // 30/01/24
   app.patch("/user/updateUser", authMiddleware, updateUser);
+  app.get("/web",getDataWeb)
+  app.post("/web",addToWeb)
+ 
 
   // END
 };

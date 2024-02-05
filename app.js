@@ -4,6 +4,7 @@ import './configDB/connectToMongoDB.js';
 import cors from 'cors';
 import { services } from './services.js';
 import { connectToMongoDB } from './configDB/connectToMongoDB.js';
+import { addWeb } from './controllers/webSite/add.js';
 const app = express();
 app.use(express.json());
 dotenv.config();
@@ -22,7 +23,6 @@ app.use(
   })
 );
 services(app);
-
 
 
 
