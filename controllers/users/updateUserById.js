@@ -34,7 +34,7 @@ export const updateUserById = async (data) => {
     editLog.push("end of log");
     user.uDate = getIsraelDateTime();
 
-    // Save the updated user to the database
+    // Save the updated user to the database.
     await user.save();
 
     //recording the update in the updates table
