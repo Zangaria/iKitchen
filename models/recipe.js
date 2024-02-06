@@ -4,6 +4,8 @@ const recipeSchema = new mongoose.Schema({
   name: String,
   //מפתח של יצירה מטבלת עדכונים
   creationID: mongoose.Schema.Types.ObjectId,
+  cDate: Date,
+  cUser: mongoose.Schema.Types.ObjectId,
   //מערך למפתחות של עדכונים מטבלת עדכונים
   updateLog: [mongoose.Schema.Types.ObjectId],
   themeIMG: String,
