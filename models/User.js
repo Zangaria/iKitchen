@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 // Amitoz 27/01/24
 // Wating to Cahnges....
 const userSchema = new mongoose.Schema({
@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: Number,
     match: [1, 2, 3],
-    default: 1,
+    default: 3,
   },
   password: String,
   loginLog: [Date],
@@ -32,7 +32,4 @@ const userSchema = new mongoose.Schema({
   cDate: Date,
 });
 
-export const User = mongoose.model(
-  'users',
-  userSchema
-);
+export const User = mongoose.model("users", userSchema);
