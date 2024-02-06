@@ -47,6 +47,7 @@ export const addUser = async (data) => {
             Invalidpassword: false,
             uDate: getIsraelDateTime(),
             active: false,
+            cDate: getIsraelDateTime(),
           });
 
           // Save the new user to the database
@@ -71,6 +72,7 @@ export const addUser = async (data) => {
       Invalidpassword: false,
       uDate: getIsraelDateTime(),
       active: false,
+      cDate: getIsraelDateTime(),
     });
 
     // Save the new user to the database

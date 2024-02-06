@@ -1,8 +1,14 @@
 import { User } from "../../models/index.js";
 import { updateDoc } from "../../controllers/index.js";
+import { getIsraelDateTime } from "../../helpers/getdate.js";
+//Eliran 06/02/24
+// added a uDate update to signify last user update
+// added record to the updates table
+
 // Amitoz 30/01/24
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
 // use this func to update user , user password or... username......
+
 export const updateUserById = async (data) => {
   const { userId, password, userName } = data;
 
@@ -26,14 +32,17 @@ export const updateUserById = async (data) => {
       user.userName = userName;
     }
     editLog.push("end of log");
+    user.uDate = getIsraelDateTime();
 
     // Save the updated user to the database
     await user.save();
-    //Eliran 06/02/24
+
     //recording the update in the updates table
     const docType = "user";
     const docID = userId;
     const res = await updateDoc({ docType, docID, userId, editLog });
+    //since it's happening on server side, no need to return it to the client, simply log it on the console
+    //should we make a table for server errors logging?
     if (res?.err) {
       console.log(res?.msg);
     }
