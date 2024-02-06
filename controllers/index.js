@@ -8,10 +8,10 @@ import { addRecipe } from "./recipes/addRecipe.js";
 import { addWeb } from "./webSite/add.js";
 import { getWebByCode } from "./webSite/getData.js";
 import { createDoc } from "./docUpdates/createDoc.js";
+import { updateDoc } from "./docUpdates/updateDoc.js";
 
 export { activeUserById, addUser, forgotPass, loginUser, updateUserById };
 export { addIngrediant };
 export { addRecipe };
-export {addWeb,getWebByCode};
-export {createDoc};
-
+export { addWeb, getWebByCode };
+export { createDoc, updateDoc };
