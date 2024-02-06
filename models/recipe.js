@@ -1,13 +1,8 @@
 import mongoose from "mongoose";
 // eliran 30/01/24
 const recipeSchema = new mongoose.Schema({
-  name: String,
-  //מפתח של יצירה מטבלת עדכונים
-  creationID: mongoose.Schema.Types.ObjectId,
-  cDate: Date,
-  cUser: mongoose.Schema.Types.ObjectId,
-  //מערך למפתחות של עדכונים מטבלת עדכונים
-  updateLog: [mongoose.Schema.Types.ObjectId],
+  recipeName: String,
+  userId: mongoose.Schema.Types.ObjectId,
   themeIMG: String,
   coverIMG: String,
   recipeIMG: [String],

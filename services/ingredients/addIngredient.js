@@ -1,5 +1,4 @@
 import { addIngrediant } from "../../controllers/index.js";
-import { getIsraelDateTime } from "../../helpers/getdate.js";
 // Eliran 06/02/24
 // Add Ingredient Service
 
@@ -35,13 +34,13 @@ export const addIngredient = async (req, res) => {
     cUser,
   };
 
-  const response = await addIngrediant(data);
+  const res = await addIngrediant(data);
 
-  if (!response?.err) {
+  if (!res?.err) {
     return res.status(201).json({
       msg: "the ingredient was created successfully",
     });
   } else {
-    return res.status(400).json(response);
+    return res.status(400).json(res);
   }
 };

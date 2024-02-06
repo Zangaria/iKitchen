@@ -8,6 +8,13 @@ import { createDoc } from "../docUpdates/createDoc.js";
 // data = {token:'toekn', and paramaeter you want update the params need be like the schema!!!!!}
 // use this func to update user , user password or... username......
 export const addRecipe = async (data) => {
+  if (!data?.userId) {
+    return {
+      code: 103,
+      err: true,
+      msg: "Unautherized, please log in.",
+    };
+  }
   if (
     !data?.name ||
     !data?.themeIMG ||
@@ -17,7 +24,7 @@ export const addRecipe = async (data) => {
     return {
       code: 106,
       err: true,
-      msg: "one or two parameters is missing.",
+      msg: "one or more parameters is missing.",
     };
   }
   try {
@@ -27,9 +34,9 @@ export const addRecipe = async (data) => {
 
     const docRef = "creation";
     const docType = "recipe";
-    const userID = data.cUser;
+    const userId = data.userId;
     const docID = res?._id;
-    const recordCreation = { docRef, docType, uDate, userID, docID };
+    const recordCreation = { docRef, docType, uDate, userId, docID };
     const recordRes = await createDoc(recordCreation);
     if (recordRes?.err) {
       console.log(recordRes.msg);
