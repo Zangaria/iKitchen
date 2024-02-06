@@ -16,10 +16,10 @@ export const addRecipe = async (data) => {
     };
   }
   if (
-    !data?.name ||
+    !data?.recipeName ||
     !data?.themeIMG ||
-    data.tags.length() == 0 ||
-    data.body.length() == 0
+    data.tags.length == 0 ||
+    data.body.length == 0
   ) {
     return {
       code: 106,
@@ -28,19 +28,19 @@ export const addRecipe = async (data) => {
     };
   }
   try {
-    //create a new recipe
+    // //create a new recipe
     const newRecipe = new recipe(data);
     const res = await newRecipe.save();
 
-    const docRef = "creation";
-    const docType = "recipe";
-    const userId = data.userId;
-    const docID = res?._id;
-    const recordCreation = { docRef, docType, uDate, userId, docID };
-    const recordRes = await createDoc(recordCreation);
-    if (recordRes?.err) {
-      console.log(recordRes.msg);
-    }
+    // const docRef = "creation";
+    // const docType = "recipe";
+    // const userId = data.userId;
+    // const docID = res?._id;
+    // const recordCreation = { docRef, docType, userId, docID };
+    // const recordRes = await createDoc(recordCreation);
+    // if (recordRes?.err) {
+    //   console.log(recordRes.msg);
+    // }
     return res?._id.toString();
   } catch (error) {
     return { err: true, msg: error.message };

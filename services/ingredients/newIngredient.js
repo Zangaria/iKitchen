@@ -2,7 +2,7 @@ import { addIngrediant } from "../../controllers/index.js";
 // Eliran 06/02/24
 // Add Ingredient Service
 
-export const addIngredient = async (req, res) => {
+export const newIngredient = async (req, res) => {
   if (!req.body?.name || !req.body?.category || req.body.info.length() == 0)
     return res.status(400).json({ msg: "params missing" });
 
@@ -34,13 +34,13 @@ export const addIngredient = async (req, res) => {
     cUser,
   };
 
-  const res = await addIngrediant(data);
+  const response = await addIngrediant(data);
 
-  if (!res?.err) {
-    return res.status(201).json({
+  if (!response?.err) {
+    return response.status(201).json({
       msg: "the ingredient was created successfully",
     });
   } else {
-    return res.status(400).json(res);
+    return res.status(400).json(response);
   }
 };
