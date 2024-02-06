@@ -14,6 +14,7 @@ export const loginUser = async (data) => {
     }
 
     // Check the password (replace this with your actual password validation logic)
+    
     const comparPassword = compareUserPassword(password, user.password);
     if (!comparPassword) {
       return { err: true, msg: "Invalid password" };
@@ -30,7 +31,7 @@ export const loginUser = async (data) => {
     // Generate a token for the authenticated user
     const token = generateToken(user);
 
-    return { err: false, msg: "Login successful", token };
+    return { err: false, msg: "Login successful", token, username:user.userName };
   } catch (error) {
     return { err: true, msg: error.message };
   }
