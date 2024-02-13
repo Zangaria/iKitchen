@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 // eliran 30/01/24
 const recipeSchema = new mongoose.Schema({
   recipeName: String,
-  userId: mongoose.Schema.Types.ObjectId,
   themeIMG: String,
   coverIMG: String,
   recipeIMG: [String],
@@ -43,6 +42,7 @@ const recipeSchema = new mongoose.Schema({
   closing: [String],
   views: Number,
   saved: Number,
+  userId: mongoose.Schema.Types.ObjectId,
 });
 
 export const recipe = mongoose.model("recipes", recipeSchema);

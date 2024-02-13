@@ -5,23 +5,15 @@ import { addIngrediant } from "../../controllers/index.js";
 // remove cuser and cdate from data
 
 export const newIngredient = async (req, res) => {
-  if (!req.body?.name || !req.body?.category || req.body.info.length() == 0)
+  if (
+    !req.body.ingredient?.ingredName ||
+    !req.body.ingredient?.category ||
+    req.body.ingredient?.info.length() == 0
+  )
     return res.status(400).json({ msg: "params missing" });
 
-  const name = req.body.name;
-  const category = req.body.category;
-  const info = req.body.info;
-  const ingredMeasure = req.body?.ingredMeasure;
-  const ingredScaleToGr = req.body?.ingredScaleToGr;
-  const allergens = req.body?.allergens;
-  const ingredCarbs = req.body?.ingredCarbs;
-  const ingredProt = req.body?.ingredProt;
-  const ingredSugar = req.body?.ingredSugar;
-  const ingredFat = req.body?.ingredFat;
-  const ingredSodium = req.body?.ingredSodium;
-
-  const data = {
-    name,
+  const data = ({
+    ingredName,
     category,
     info,
     ingredMeasure,
@@ -32,7 +24,7 @@ export const newIngredient = async (req, res) => {
     ingredSugar,
     ingredFat,
     ingredSodium,
-  };
+  } = req.body?.ingredient);
 
   const response = await addIngrediant(data);
 

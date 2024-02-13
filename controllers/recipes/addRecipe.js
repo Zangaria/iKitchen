@@ -32,15 +32,15 @@ export const addRecipe = async (data) => {
     const newRecipe = new recipe(data);
     const res = await newRecipe.save();
 
-    // const docRef = "creation";
-    // const docType = "recipe";
-    // const userId = data.userId;
-    // const docID = res?._id;
-    // const recordCreation = { docRef, docType, userId, docID };
-    // const recordRes = await createDoc(recordCreation);
-    // if (recordRes?.err) {
-    //   console.log(recordRes.msg);
-    // }
+    const docRef = "creation";
+    const docType = "recipe";
+    const userId = data.userId;
+    const docID = res?._id;
+    const recordCreation = { docRef, docType, userId, docID };
+    const recordRes = await createDoc(recordCreation);
+    if (recordRes?.err) {
+      console.log(recordRes.msg);
+    }
     return res?._id.toString();
   } catch (error) {
     return { err: true, msg: error.message };

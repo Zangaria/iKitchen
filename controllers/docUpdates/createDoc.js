@@ -1,35 +1,35 @@
-import { DocUpdate } from '../../models/index.js';
-import { getIsraelDateTime } from '../../helpers/getdate.js';
+import { DocUpdate } from "../../models/index.js";
+import { getIsraelDateTime } from "../../helpers/getdate.js";
 
 //Eliran 06/02/24
 //Recording a creation of a new item in the updates table
 export const createDoc = async (data) => {
   if (
     !data?.docType ||
-    !data?.DocID ||
-    (data?.docType != 'user' && !data?.userID)
+    !data?.docId ||
+    (data?.docType == "recipe" && !data?.userId)
   ) {
     return {
       code: 106,
       err: true,
-      msg: 'unrecorded creation, missing parameters',
+      msg: "unrecorded creation, missing parameters",
     };
   }
   try {
     //checking if the creation of the doc already been recorded
     const existingDoc = await DocUpdate.findOne({
-      docRef: 'creation',
-      docID: data.DocID,
+      docRef: "creation",
+      docId: data.docId,
     });
     if (existingDoc) {
       //if it has, this will have the controller for updateDoc
       return {
         code: 106,
         err: true,
-        msg: 'unrecorded creation, the document has already been recorded.',
+        msg: "unrecorded creation, the document has already been recorded.",
       };
     } else {
-      data.docRef = 'creation';
+      data.docRef = "creation";
       data.uDate = new Date(getIsraelDateTime());
       const creationRecord = new DocUpdate(data);
       const res = await creationRecord.save();

@@ -10,7 +10,7 @@ export const addIngrediant = async (data) => {
     return {
       code: 106,
       err: true,
-      msg: "the parameters name & category & cUser & info are required.",
+      msg: "the parameters name & category & info are required.",
     };
   }
   try {
@@ -30,16 +30,15 @@ export const addIngrediant = async (data) => {
       const newIngredient = new Ingredient(data);
       newIngredient.cDate = getIsraelDateTime();
       const res = await newIngredient.save();
-      //record the creation on the updates table
-      // const docRef = "creation";
-      // const docType = "ingredient";
-      // const userID = data.cUser;
-      // const docID = response;
-      // const recordCreation = { docRef, docType, uDate, userID, docID };
-      // const recordRes = await createDoc(recordCreation);
-      // if (recordRes?.err) {
-      //   console.log(recordRes.msg);
-      // }
+      // record the creation on the updates table
+      const docRef = "creation";
+      const docType = "ingredient";
+      const docId = res?._id;
+      const recordCreation = { docRef, docType, uDate, docId };
+      const recordRes = await createDoc(recordCreation);
+      if (recordRes?.err) {
+        console.log(recordRes.msg);
+      }
       return res?._id.toString();
     }
   } catch (error) {

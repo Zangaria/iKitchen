@@ -13,9 +13,9 @@ const docUpdateSchema = new mongoose.Schema({
   },
   uDate: Date,
   //זיהוי המשתמש המעדכן
-  userID: mongoose.Schema.Types.ObjectId,
+  userId: mongoose.Schema.Types.ObjectId,
   //זיהוי הרשומה שעודכנה
-  docID: mongoose.Schema.Types.ObjectId,
+  docId: mongoose.Schema.Types.ObjectId,
   editLog: [String],
   editNote: String,
 });
