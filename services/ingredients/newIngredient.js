@@ -17,7 +17,6 @@ export const newIngredient = async (req, res) => {
   const ingredSugar = req.body?.ingredSugar;
   const ingredFat = req.body?.ingredFat;
   const ingredSodium = req.body?.ingredSodium;
-  const cUser = req?.userId;
 
   const data = {
     name,
@@ -31,7 +30,6 @@ export const newIngredient = async (req, res) => {
     ingredSugar,
     ingredFat,
     ingredSodium,
-    cUser,
   };
 
   const response = await addIngrediant(data);
