@@ -1,6 +1,8 @@
 import { addIngrediant } from "../../controllers/index.js";
 // Eliran 06/02/24
 // Add Ingredient Service
+// 13/02/24
+// remove cuser and cdate from data
 
 export const newIngredient = async (req, res) => {
   if (!req.body?.name || !req.body?.category || req.body.info.length() == 0)
