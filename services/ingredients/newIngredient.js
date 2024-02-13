@@ -6,9 +6,9 @@ import { addIngrediant } from "../../controllers/index.js";
 
 export const newIngredient = async (req, res) => {
   if (
-    !req.body.ingredient?.ingredName ||
-    !req.body.ingredient?.category ||
-    req.body.ingredient?.info.length() == 0
+    !req.body?.ingredName ||
+    !req.body?.category ||
+    req.body?.info.length() == 0
   )
     return res.status(400).json({ msg: "params missing" });
 
@@ -24,7 +24,7 @@ export const newIngredient = async (req, res) => {
     ingredSugar,
     ingredFat,
     ingredSodium,
-  } = req.body?.ingredient);
+  } = req.body);
 
   const response = await addIngrediant(data);
 

@@ -20,7 +20,7 @@ export const newRecipe = async (req, res) => {
     closing,
     views,
     saved,
-  } = req.body.user || req.body.recipe);
+  } = req.body);
 
   const response = await addRecipe(data);
 
