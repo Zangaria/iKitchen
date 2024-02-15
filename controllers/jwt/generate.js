@@ -6,7 +6,8 @@ dotenv.config();
 export const generateToken = (user) => {
     const payload = {
         userId: user._id, // Assuming your user object has an "_id" property
-        email: user.email
+        email: user.email,
+        role: user.role
         // Add other user-related information to the payload if needed
     };
 

@@ -11,15 +11,8 @@ app.use(express.json());
 dotenv.config();
 
 connectToMongoDB();
-const data = {
-  userId: "65bfcb4bb9955df84b93e49b",
-  recipeName: "test recipe",
-  themeIMG: "oijohrhbri",
-  tags: ["test 1", "test 2"],
-  body: [{ sInstruct: ["step 1", "step 2"] }],
-};
-const response = await addRecipe(data);
-console.log(response);
+
+
 const port = process.env.PORT || 8080;
 
 app.use(
