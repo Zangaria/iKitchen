@@ -1,6 +1,5 @@
-import { DocUpdate } from "../../models/index.js";
 import { getIsraelDateTime } from "../../helpers/getdate.js";
-
+DocU;
 //Eliran 06/02/24
 //Recording a creation of a new item in the updates table
 export const createDoc = async (data) => {
@@ -31,7 +30,7 @@ export const createDoc = async (data) => {
     } else {
       data.docRef = "creation";
       data.uDate = new Date(getIsraelDateTime());
-      const creationRecord = new DocUpdate(data);
+      const creationRecord = new DocUp(data);
       const res = await creationRecord.save();
 
       return {
