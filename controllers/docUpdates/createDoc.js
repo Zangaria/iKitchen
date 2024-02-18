@@ -1,4 +1,5 @@
 import { getIsraelDateTime } from "../../helpers/getdate.js";
+import { DocUpdate } from "../../models/docUpdate.js";
 
 //Eliran 06/02/24
 //Recording a creation of a new item in the updates table

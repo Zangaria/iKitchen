@@ -1,5 +1,5 @@
-import { DocUpdate, Ingredient, User, recipe } from "../../models/index.js";
 import { getIsraelDateTime } from "../../helpers/getdate.js";
+import { DocUpdate } from "../../models/docUpdate.js";
 
 //Eliran 06/02/24
 //Recording an update of a new item in the updates table

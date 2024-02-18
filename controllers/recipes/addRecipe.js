@@ -1,4 +1,4 @@
-import { recipe } from "../../models/index.js";
+import { recipe } from "../../models/recipe.js";
 import { createDoc } from "../docUpdates/createDoc.js";
 
 // Eliran 06/02/24

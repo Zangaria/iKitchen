@@ -1,11 +1,12 @@
 import { authMiddleware } from "./middleware/authMiddleware.js";
+import { getIngredientByName } from "./services/ingredients/getIngredientByName.js";
 import { newIngredient } from "./services/ingredients/newIngredient.js";
+import { newRecipe } from "./services/recipes/newRecipe.js";
 import { ForgotPassword } from "./services/users/ForgotPassword.js";
 import { Login } from "./services/users/Login.js";
 import { Register } from "./services/users/Register.js";
 import { activeUser } from "./services/users/activeUser.js";
 import { updateUser } from "./services/users/updateUser.js";
-
 export const services = (app) => {
   // Amitoz 27/01/24
   app.post("/user/register", Register);
