@@ -1,4 +1,4 @@
-import { updateUserById } from "../../controllers/index.js";
+import { updateUserById } from "../../controllers/users/updateUserById.js";
 
 export const updateUser = async (req, res) => {
   console.log(req.user);

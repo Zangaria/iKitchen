@@ -1,15 +1,10 @@
 import { authMiddleware } from "./middleware/authMiddleware.js";
-import {
-  Register,
-  Login,
-  newRecipe,
-  newIngredient,
-  activeUser,
-  ForgotPassword,
-  updateUser,
-  getDataWeb,
-  addToWeb,
-} from "./services/index.js";
+import { newIngredient } from "./services/ingredients/newIngredient.js";
+import { ForgotPassword } from "./services/users/ForgotPassword.js";
+import { Login } from "./services/users/Login.js";
+import { Register } from "./services/users/Register.js";
+import { activeUser } from "./services/users/activeUser.js";
+import { updateUser } from "./services/users/updateUser.js";
 
 export const services = (app) => {
   // Amitoz 27/01/24
@@ -19,10 +14,11 @@ export const services = (app) => {
   app.get("/user/activeUser", activeUser);
   app.post("/user/ForgotPassword", ForgotPassword); // 30/01/24
   app.patch("/user/updateUser", authMiddleware, updateUser);
-  app.get("/web", getDataWeb);
-  app.post("/web", addToWeb);
+
   // END
   //Eliran 05/02/24
   app.post("/ingredient/add", authMiddleware, newIngredient);
+  app.get("/ingredient/data", getIngredientByName);
+
   app.post("/recipe/add", authMiddleware, newRecipe);
 };

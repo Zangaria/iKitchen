@@ -1,4 +1,4 @@
-import { forgotPass } from "../../controllers/index.js";
+import { forgotPass } from "../../controllers/users/forgotPass.js";
 
 export const ForgotPassword = async (req, res) => {
   const response = await forgotPass(req.body);

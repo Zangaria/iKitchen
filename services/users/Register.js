@@ -1,4 +1,4 @@
-import { addUser } from "../../controllers/index.js";
+import { addUser } from "../../controllers/users/addUser.js";
 import { SendEmail } from "../../helpers/SendEmail.js";
 
 // Amitoz 27/01/24

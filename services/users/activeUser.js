@@ -1,5 +1,4 @@
-//import { activeUserById } from "../../controllers/users/activeUserByID.js";
-import { activeUserById } from "../../controllers/index.js";
+import { activeUserById } from "../../controllers/users/activeUserByID.js";
 
 // Active User By ID (MongoID)
 // Amitoz 27/01/24

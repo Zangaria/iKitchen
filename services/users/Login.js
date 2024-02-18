@@ -1,4 +1,4 @@
-import { loginUser } from "../../controllers/index.js";
+import { loginUser } from "../../controllers/users/login.js";
 
 export const Login = async (req, res) => {
   const response = await loginUser(req.body);

@@ -1,6 +1,8 @@
-import { addRecipe } from "../../controllers/index.js";
 
 // Eliran 06/02/24
+
+import { addRecipe } from "../../controllers/recipes/addRecipe.js";
+
 //input req.user req.recipe
 export const newRecipe = async (req, res) => {
   const data = ({
