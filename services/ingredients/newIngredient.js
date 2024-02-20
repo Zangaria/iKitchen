@@ -6,13 +6,6 @@
 import { addIngrediant } from "../../controllers/ingredients/addIngredient.js";
 
 export const newIngredient = async (req, res) => {
-  if (
-    !req.body?.ingredName ||
-    !req.body?.category ||
-    req.body?.info.length == 0
-  )
-    return res.status(400).json({ msg: "params missing" });
-
   const {
     ingredName,
     category,
