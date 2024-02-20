@@ -1,6 +1,7 @@
 import { authMiddleware } from "./middleware/authMiddleware.js";
 import { getIngredientByName } from "./services/ingredients/getIngredientByName.js";
 import { newIngredient } from "./services/ingredients/newIngredient.js";
+import { getAllRecipes } from "./services/recipes/getAllRecipes.js";
 import { newRecipe } from "./services/recipes/newRecipe.js";
 import { ForgotPassword } from "./services/users/ForgotPassword.js";
 import { Login } from "./services/users/Login.js";
@@ -22,4 +23,5 @@ export const services = (app) => {
   app.get("/ingredient/data", getIngredientByName);
 
   app.post("/recipe/add", authMiddleware, newRecipe);
+  app.get("/recipe/all", getAllRecipes);
 };
