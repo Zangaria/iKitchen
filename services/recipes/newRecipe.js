@@ -1,11 +1,28 @@
-
 // Eliran 06/02/24
 
 import { addRecipe } from "../../controllers/recipes/addRecipe.js";
 
 //input req.user req.recipe
 export const newRecipe = async (req, res) => {
-  const data = ({
+  const userId = req.user?.userId;
+  const {
+    recipeName,
+    themeIMG,
+    coverIMG,
+    rImgCap,
+    tags,
+    prepTime,
+    cookTime,
+    difficulty,
+    adjustable,
+    intro,
+    body,
+    tips,
+    closing,
+    views,
+    saved,
+  } = req.body;
+  const data = {
     userId,
     recipeName,
     themeIMG,
@@ -22,7 +39,7 @@ export const newRecipe = async (req, res) => {
     closing,
     views,
     saved,
-  } = req.body);
+  };
 
   const response = await addRecipe(data);
 

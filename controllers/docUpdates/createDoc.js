@@ -4,11 +4,7 @@ import { DocUpdate } from "../../models/docUpdate.js";
 //Eliran 06/02/24
 //Recording a creation of a new item in the updates table
 export const createDoc = async (data) => {
-  if (
-    !data?.docType ||
-    !data?.docId ||
-    (data?.docType == "recipe" && !data?.userId)
-  ) {
+  if (!data?.docType || !data?.docId) {
     return {
       code: 106,
       err: true,

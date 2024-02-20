@@ -35,8 +35,8 @@ export const addRecipe = async (data) => {
     const docRef = "creation";
     const docType = "recipe";
     const userId = data.userId;
-    const docID = res?._id;
-    const recordCreation = { docRef, docType, userId, docID };
+    const docId = res?._id;
+    const recordCreation = { docRef, docType, userId, docId };
     const recordRes = await createDoc(recordCreation);
     if (recordRes?.err) {
       console.log(recordRes.msg);
