@@ -9,7 +9,7 @@ export const newIngredient = async (req, res) => {
   if (
     !req.body?.ingredName ||
     !req.body?.category ||
-    req.body?.info.length() == 0
+    req.body?.info.length == 0
   )
     return res.status(400).json({ msg: "params missing" });
 
