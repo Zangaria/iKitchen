@@ -3,12 +3,10 @@ import mongoose from "mongoose";
 const docUpdateSchema = new mongoose.Schema({
   docRef: {
     type: String,
-    match: ["creation", "update"],
     require: true,
   },
   docType: {
     type: String,
-    match: ["user", "recipe", "ingredient"],
     require: true,
   },
   uDate: Date,

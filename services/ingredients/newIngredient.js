@@ -1,4 +1,3 @@
-
 // Eliran 06/02/24
 // Add Ingredient Service
 // 13/02/24
@@ -14,7 +13,7 @@ export const newIngredient = async (req, res) => {
   )
     return res.status(400).json({ msg: "params missing" });
 
-  const data = ({
+  const {
     ingredName,
     category,
     info,
@@ -26,12 +25,27 @@ export const newIngredient = async (req, res) => {
     ingredSugar,
     ingredFat,
     ingredSodium,
-  } = req.body);
+  } = req.body;
+  const userId = req.user?.userId;
+  const data = {
+    ingredName,
+    category,
+    info,
+    ingredMeasure,
+    ingredScaleToGr,
+    allergens,
+    ingredCarbs,
+    ingredProt,
+    ingredSugar,
+    ingredFat,
+    ingredSodium,
+    userId,
+  };
 
   const response = await addIngrediant(data);
 
   if (!response?.err) {
-    return response.status(201).json({
+    return res.status(201).json({
       msg: "the ingredient was created successfully",
     });
   } else {
