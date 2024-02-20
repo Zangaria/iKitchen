@@ -3,6 +3,7 @@ import { getIngredientByName } from "./services/ingredients/getIngredientByName.
 import { newIngredient } from "./services/ingredients/newIngredient.js";
 import { getAllRecipes } from "./services/recipes/getAllRecipes.js";
 import { newRecipe } from "./services/recipes/newRecipe.js";
+import { getRecipeByID } from "./services/recipes/recipeById.js";
 import { ForgotPassword } from "./services/users/ForgotPassword.js";
 import { Login } from "./services/users/Login.js";
 import { Register } from "./services/users/Register.js";
@@ -22,6 +23,7 @@ export const services = (app) => {
   app.post("/ingredient/add", authMiddleware, newIngredient);
   app.get("/ingredient/data", getIngredientByName);
 
-  app.post("/recipe/add", authMiddleware, newRecipe);
+  app.post("/recipe/add", authMiddleware, newRecipe); //20/02/24
   app.get("/recipe/all", getAllRecipes);
+  app.get("/recipe/byId", getRecipeByID);
 };
