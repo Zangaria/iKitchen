@@ -24,11 +24,11 @@ const recipeSchema = new mongoose.Schema({
     {
       sName: String,
       //מפתח של מצרך מטבלת מצרכים
-      sIngred: [mongoose.Schema.Types.ObjectId],
+      sIngred: [String],
       sIngredQt: [Number],
       sIngredMsr: [String],
       // מפתח של מצרך מטבלת מצרכים
-      sAltIngred: [mongoose.Schema.Types.ObjectId],
+      sAltIngred: [String],
       sIngredIndex: [Number],
       sAltQt: [Number],
       sAltMsr: [String],
